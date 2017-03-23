@@ -1,0 +1,49 @@
+<html>
+ <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+<div class="jumbotron" style="background-color:#f0ad4e" >
+    <center><h2 style="color:white" >Node - CRUD application </h2></center>
+</div>
+
+<div class = "container">
+  <form action="/Quotes" class="form-group" method="POST">
+      <label for="name">Name:</label><br><input type="text" class="form-control" placeholder="name" id="name" name="name"><br>
+      <label for="quotes">Quote:</label><br><input type="text" class="form-control" placeholder="quote" id="quotes" name="quote"><br><br>
+      <button class="btn btn-warning" type="submit">Submit</button>
+    </form>
+<br>
+<!--<div>
+  <h1>replacing the Quote</h1>
+  <button class="btn btn-warning" id="update">replacing the selected Quote</button>
+</div>
+
+ -->
+
+<div class="jumbotron">
+  <center><h3>List Of Quotes By Great Men</h3></center>
+  <div>
+    <button style="float:right" class="btn btn-warning" id="delete"> Delete last quote </button>
+  <br></div>
+  <br><hr><br>
+
+
+<ul class="Quotes">
+  <% for(var i=0; i<Quotes.length; i++) {%>
+    <li class="Quote list-group-item">
+      <span><%= Quotes[i].name %></span>
+      <span>:<%= Quotes[i].quote %></span>
+    </li>
+  <% } %>
+</ul>
+<script src="main.js"></script>
+</div>
+
+</div>
+</body>
+
+
+</html>
