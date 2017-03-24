@@ -1,0 +1,124 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo" xmlns="http://www.w3.org/1999/html">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Node/Angular Todo App</title>
+
+	<!-- SCROLLS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+		#todo-list 				{ margin-bottom:30px; }
+		#todo-form 	 			{ margin-bottom:50px; }
+	</style>
+
+	<!-- SPELLS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+
+	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
+	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/core.js"></script> <!-- load our main application -->
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-controller="mainController">
+	<div class="container">
+
+		<!-- HEADER AND TODO COUNT -->
+		<div class="jumbotron text-center">
+			<h1>MEAN CRUD <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
+
+		<!-- TODO LIST -->
+		<div id="todo-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+
+				
+
+
+
+		<!-- FORM TO CREATE TODOS -->
+		<div id="todo-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<p><span>
+							<input type="text" class=" btn-lg text-center" placeholder="Tasks to be done" ng-model="formData.text">
+
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+							<button type="submit" class="btn btn-primary " ng-click="createTodo()">Add</button>
+						</span>
+						</p></div>
+				</form>
+			</div>
+		</div>
+				<!-- LOOP OVER THE TODOS IN $scope.todos -->
+
+
+				<table>
+					<tr><th>No</th>
+						<th>Task</th>
+						<th>Action</th>
+
+
+					</tr>
+					<tr class="" ng-repeat="todo in todos">
+						<td>{{$index+1}}</td>
+						<td>{{ todo.text }}</td>
+
+						<td>	<button type="submit" ng-click="deleteTodo(todo._id)">Delete</button>
+</td>
+
+					</tr>
+
+				</table>
+
+
+
+
+				<!--<div class="jumbotron" ng-repeat="todo in todos">-->
+
+					<!--<button type="submit" ng-click="deleteTodo(todo._id)">Delete</button> <label><b>{{ todo.text }}-->
+				<!--<b></b></label>-->
+				<!--</div>-->
+
+				<!--<p class="text-center text-muted" ng-show="loading">-->
+					<!--<span class="fa fa-spinner fa-spin fa-3x"></span>-->
+				<!--</p>-->
+
+			<!--</div>-->
+		</div>
+		<div class="text-center text-muted">
+
+		</div>
+
+	</div>
+
+</body>
+</html>
